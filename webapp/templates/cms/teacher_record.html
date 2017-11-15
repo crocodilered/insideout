@@ -1,0 +1,44 @@
+<%inherit file="_base.html"/>
+
+<%block name="form">
+	<form class="container" method="post" action="/cms/teachers/record" enctype="multipart/form-data">
+		<div class="row row-title"><div class="col"><h1>Преподаватели</h1></div></div>
+		<div class="row align-items-center">
+			<div class="col-md-4"><div class="form-group"><img src="${teacher.photo if teacher and teacher.photo else '/i/cms/teachers_placeholder.png'}" class="img-fluid"></div></div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<label for="inputPhoto">Фотография <span class="badge badge-danger">только PNG-файлы 266&times;266</span></label>
+					<input type="file" class="form-control" id="inputPhoto" name="photo" accept="image/png">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label for="inputName">Имя</label>
+					<input type="text" class="form-control form-control-lg" id="inputName" name="name" value="${teacher.name if teacher else ''}" required>
+				</div>
+				<div class="form-group">
+					<label for="inputCol1">Колонка № 1</label>
+					<textarea class="form-control" id="inputCol1" name="col1" rows="8" required>${teacher.col1 if teacher else ''}</textarea>
+				</div>
+				<div class="form-group">
+					<label for="inputCol2">Колонка № 2</label>
+					<textarea class="form-control" id="inputCol2" name="col2" rows="8" required>${teacher.col2 if teacher else ''}</textarea>
+				</div>
+				<div class="form-check">
+					<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="inputEnabled" name="enabled" value="1" ${'checked="checked"' if teacher and teacher.enabled else ''} >
+						<span class="custom-control-indicator"></span>
+						<span class="custom-control-description">Использовать на сайте</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row row-buttons">
+			<input type="hidden" name="teacher_id" value="${teacher.teacher_id if teacher else ''}">
+			<div class="col"><button type="submit" class="btn btn-primary">Сохранить</button></div>
+		</div>
+	</form>
+</%block>
+

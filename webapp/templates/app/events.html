@@ -1,0 +1,27 @@
+<%inherit file="_base.html"/>
+
+<%block name="main">
+	% if pageId == 'eventsRecord':
+		<div class="container container-narrow container-tall">
+			<div class="row row-title">
+				<div class="col">
+					<h1><small>События</small><br>${event.title}</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<img src="${event.photo}" class="img-fluid mt-2 mb-4">
+					% if "<p>" in event.text:
+						${event.text}
+					% else:
+						<p>
+							${event.text\
+								.replace("\r\n\r\n", "</p>\n<p>")\
+								.replace("\r\n", "<br>\n")}
+						</p>
+					% endif
+				</div>
+			</div>
+		</div>
+	% endif
+</%block>

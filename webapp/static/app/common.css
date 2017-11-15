@@ -1,0 +1,192 @@
+@font-face{
+	font-family:'Playfair Display 5';
+	src:url('/i/playfairdisplay-regular.eot');
+	src:local('â˜º'), url('/i/playfairdisplay-regular.woff') format('woff'), url('/i/playfairdisplay-regular.svg') format('svg');
+	font-weight:400;
+	font-style:normal;
+}
+
+body { font-family: 'PT Sans', sans-serif; }
+
+a { color:#fa8128; }
+a:hover {color:#dd571c;}
+
+.container-narrow { max-width:750px; }
+.container-tall { margin-top:4rem; margin-bottom:4rem; }
+ 
+
+#header { display:none; }
+
+#footer { background:#f8f8f8; font-size:90%; padding: 1px 0; }
+#footer .col:first-child { text-align:center; }
+#footer table td { padding:5px 7px 5px 0; }
+#footer .nav .nav-link { padding:0 1.5rem 0 0; }
+
+#pano { height:200px; background-size:auto 200px; background-position:50% 50%; }
+#body-frontpage #pano { background-image: url('/i/pano1.jpg'); }
+
+.navbar {z-index:100; padding:10px 0;}
+.navbar .navbar-brand {
+	position: relative;
+	margin-left: 50%;
+ 	left:-70px;
+}
+.navbar .navbar-toggler {
+	position: absolute;
+	top: 14px;
+	right: 5px;
+ }
+.navbar .navbar-toggler-icon { background-image: url("data:image/svg+xml;charset=utf8,<svg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'><path stroke='rgba(0, 0, 0, 0.7)' stroke-width='5' stroke-linecap='round' stroke-miterlimit='4' d='M15 7h0M15 15h0M15 23h0'/></svg>"); }
+.navbar .nav-item { text-align:center; }
+.navbar .nav-item .nav-link {  color:#000; }
+
+.logo { width:140px; height:50px; }
+
+.row-title {margin: 4rem 0 2rem 0;}
+.row-title .col h1 { font-family: 'Playfair Display 5', serif; text-align:center; font-size: 200%; color:#373737;}
+.row-title .col h1 small { font-family: 'PT Sans', sans-serif; color:; font-size: 30%;  line-height: 16px; color: #A3A3A3; padding-top: 18px; letter-spacing: 2px; text-transform:uppercase; }
+.row-title .col h1 i.fa { font-size:1.2rem; }
+
+.row-yoga>div:first-child {	display:none; }
+
+/* flipper */
+.flipper { perspective: 1000px; }
+.flipper, .flipper .f, .flipper .b { width:100%; height: 200px; }
+
+.flipper .f, .flipper .b {
+	top: 0;
+	left: 0;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	backface-visibility: hidden;
+	position: absolute;
+	-webkit-transition: all 0.6s ease-in-out;
+	transition: all 0.6s ease-in-out;
+}
+
+.flipper .f {
+	-webkit-transform: rotateX(0deg) rotateY(0deg);
+	-moz-transform: rotateX(0deg) rotateY(0deg);
+	transform: rotateX(0deg) rotateY(0deg);
+}
+
+.flipper .b {
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+
+.flipper:hover .f { transform: rotateY(-179deg); }
+.flipper:hover .b { transform: rotateX(0deg) rotateY(0deg); }
+
+.flipper .f, .flipper .b { padding:5px 20px; font-size:80%; border:1px solid #ddd; }
+.flipper b { font-family: 'Playfair Display 5', serif; font-size: 120%; }
+.flipper .f {
+	color:#555;
+	text-align:center;
+	padding-top:140px;
+	background-position: 50% 45%;
+	background-repeat: no-repeat;
+}
+.flipper .b { color:#fff; background:#3e4a54; font-size:80%; }
+.flipper .b span { display: table-cell; vertical-align: middle; height:160px; }
+
+/* nav-link */
+.nav-pills .nav-link:hover {color:#dd571c;}
+.nav-pills .nav-link.active { background-color: #fa8128; }
+.nav-pills .nav-link.active:hover { color: #fff; }
+
+/* Markup */
+
+p { color:#555; font-size:120%; }
+
+/* Events */
+#events .carousel-item { cursor: pointer; }
+#events .carousel-item h3 { text-shadow: 1px 1px 1px black; }
+
+@media (min-width:768px) {
+	/* norm mode */
+	#header { display:block; }
+	#pano { display:block; }
+
+	#header { margin:2rem auto; }
+	#header .fa { font-size:27px; margin-right:.2rem; }
+	#header div { line-height: 120%; text-align:center; }
+	#header div:first-child { text-align:left; }
+	#header div:last-child { text-align:right; }
+
+	#pano { height:400px; background-size:auto 400px; }
+	/* #pano div {	background: linear-gradient(to bottom, #999 0%, transparent 30%); height:500px; } */
+
+	.navbar { background:#999; }
+
+	.navbar-brand { display:none; }
+
+	.navbar .navbar-nav .nav-link {
+		padding-right: 1.5rem;
+		padding-left: 1.5rem;
+		color:#eee;
+		font-size:90%;
+		letter-spacing:1px;
+	}
+
+	.navbar .navbar-nav .nav-link:hover { color:#fa8128; }
+
+	.container-narrow { max-width: 750px; }
+
+	.flipper .b { font-size:79%; }
+
+	p:last-child { margin-bottom:0; }
+
+	#yoga .row-title { display:none; }
+	.row-yoga>div:first-child {	background-image: url(/i/yoga.jpg); background-position:50% 50%; display:block; }
+	.row-yoga>div:first-child h2 { font-family: 'Playfair Display 5', serif; text-align:center; font-size: 140%; color:white; }
+	.row-yoga>div:first-child h2 small { font-family: sans-serif; font-size: 50%;  letter-spacing: 2px; text-transform:uppercase; }
+
+	.row-teacher .col-introduction { text-align:left!important; }
+	.row-teacher .col-introduction img { position: relative; left:-10px; }
+}
+
+
+@media (max-width:1200px) {
+	#yoga .row-title { display:block; }
+	.row-yoga>div:first-child {	display:none; }
+}
+
+#body-schedule #pano { background-image: url('/i/pano1.jpg'); }
+#body-schedule table.content { width:100%; }
+#body-schedule table.content td { padding:10px 1rem 10px 1rem; vertical-align: middle; font-size:120%; color:#555; }
+#body-schedule table.content td:first-child { white-space: nowrap; text-align: right; width:35%; border-right:1px solid silver; }
+
+#body-map #pano { display:none; }
+#body-map table.content td { padding:10px 10px 10px 0px; }
+
+#body-values #pano { background-image: url('/i/pano1.jpg'); }
+#body-values table.content { width:100%; }
+#body-values table.content td { padding:10px 1rem 10px 1rem; vertical-align: middle; color:#555; }
+#body-values table.content td:first-child { font-family: 'Playfair Display 5', serif; font-size:140%; white-space: nowrap; text-align: right; width:35%; border-right:1px solid silver; }
+#body-values table.content td:last-child { font-size:120%; }
+
+#body-teachers #pano { background-image: url('/i/pano1.jpg'); }
+#body-psychotherapy #pano { background-image: url('/i/pano1.jpg'); }
+
+.row-teacher { margin-bottom:2rem; padding-bottom:2rem; border-bottom:1px solid #ede9de; }
+.row-teacher:last-child { margin-bottom:0; padding-bottom:0; border-bottom:none; }
+.row-teacher .col-introduction { text-align:center; }
+.row-teacher .col-introduction img { margin-bottom:1rem; }
+.row-teacher .col-introduction h2 { font-family: 'Playfair Display 5', serif; font-size: 180%;}
+.row-teacher .col-introduction h3 { font-family: 'Playfair Display 5', serif; font-size: 140%;}
+.row-teacher .col-introduction p { font-size: 100%;}
+.row-teacher .col-description h3 { font-size: 130%; margin:1rem 0; line-height:150%; }
+.row-teacher .col-description h3 span { border-bottom:2px solid #d5ae85; }
+
+#body-values h2 { font-family: 'Playfair Display 5', serif; font-size: 160%; text-align: center; }
+
+#body-eventsRecord #pano { display:none; }
+
+#body-massage #pano { display:none; }
+
+.table-schedule i {
+	display:block;
+	font-size:smaller;
+}

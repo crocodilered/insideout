@@ -1,0 +1,53 @@
+<%inherit file="_base.html"/>
+
+<%block name="form">
+	<div class="container">
+		<div class="row row-title">
+			<div class="col">
+				<h1>Преподаватели</h1>
+				<ul class="nav justify-content-center" style="margin-bottom: 2rem">
+					<li class="nav-item"><a href="./record" class="btn btn-outline-primary btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Добавить ...</a> </li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="records" id="sortable">
+					% for teacher in teachers:
+						<div data-id="${teacher.teacher_id}">
+							<a href="./record?teacher_id=${teacher.teacher_id}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+							<a href="#" class="btn btn-outline-secondary btn-sm btn-sort"><i class="fa fa-arrows-alt" aria-hidden="true"></i></a>
+							<big>${teacher.name}</big>
+							% if not teacher.enabled:
+								<span class="badge badge-secondary">скрыто</span>
+							% endif
+##							<a href="#" class="btn btn-outline-secondary btn-sm btn-delete" style="float:right"><i class="fa fa-trash" aria-hidden="true"></i></a>
+						</div>
+					% endfor
+				</div>
+			</div>
+		</div>
+	</div>
+</%block>
+
+<%block name="javascript">
+	<script>
+		$(function() {
+			$('#sortable').sortable({
+				handle: '.btn-sort',
+				update: function(event, ui) {
+					var arr = [];
+					$('#sortable>div').each(function() { arr.push($(this).data('id')); });
+					console.log(arr);
+					$.ajax('/cms/teachers/order', {
+						type: 'POST',
+						contentType: "application/json",
+						dataType: 'json',
+						processData: false,
+						data: JSON.stringify(arr)
+					});
+				}
+			});
+		});
+  </script>
+</%block>

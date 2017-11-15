@@ -1,0 +1,45 @@
+<%inherit file="_base.html"/>
+
+<%block name="form">
+	<form class="container" method="post" action="/cms/schedule/record">
+		<div class="row row-title">
+			<div class="col">
+				<h1>Расписание</h1>
+				<ul class="nav justify-content-center" style="margin-bottom: 2rem">
+					<li class="nav-item"><a href="./record" class="btn btn-outline-primary btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Добавить ...</a> </li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label for="inputDate">Дата</label>
+					<input type="text" class="form-control form-control-lg" id="inputDate" name="date" value="${schedule.date if schedule else ''}" required>
+				</div>
+				<div class="form-group">
+					<label for="inputContent">Расписание <span class="badge badge-secondary">разделитель - " - "</span></label>
+					<textarea class="form-control" id="inputContent" name="content" rows="12" required>${schedule.content if schedule else ''}</textarea>
+				</div>
+				<div class="form-check">
+					<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="inputEnabled" name="enabled" value="1" ${'checked="checked"' if schedule and schedule.enabled else ''} >
+						<span class="custom-control-indicator"></span>
+						<span class="custom-control-description">Использовать на сайте</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row row-buttons">
+			<input type="hidden" name="schedule_id" value="${schedule.schedule_id if schedule else ''}">
+			<div class="col"><button type="submit" class="btn btn-primary">Сохранить</button></div>
+		</div>
+	</form>
+</%block>
+
+<%block name="javascript">
+	<script>
+		$( function() {
+			$('#inputDate').datepicker({'dateFormat':'yy-mm-dd'});
+		});
+	</script>
+</%block>

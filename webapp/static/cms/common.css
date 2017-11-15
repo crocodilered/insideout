@@ -1,0 +1,24 @@
+
+ .row-title h1,
+ .row-title h2,
+ .row-title h3,
+ .row-title h4,
+ .row-title h5,
+ .row-title h6 { text-align:center; }
+
+ .row-title h1 { margin:2rem 0; }
+
+ .row-title h2,
+ .row-title h3,
+ .row-title h4,
+ .row-title h5,
+ .row-title h6  { margin:1rem 0; }
+
+.container { max-width:700px; }
+.row-buttons .col { text-align: center; margin:2rem 0; }
+
+
+div.records { max-width:500px; margin:0 auto; }
+div.records>div { padding:.4rem 0; }
+div.records>div a { margin-right:.3rem; }
+div.records>div big { margin-left:.3rem; }

@@ -1,0 +1,30 @@
+<%inherit file="_base.html"/>
+
+<%block name="form">
+	<div class="container">
+		<div class="row row-title">
+			<div class="col">
+				<h1>События</h1>
+				<ul class="nav justify-content-center" style="margin-bottom: 2rem">
+					<li class="nav-item"><a href="./record" class="btn btn-outline-primary btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Добавить ...</a> </li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="records">
+					% for event in events:
+						<div>
+							<a href="./record?event_id=${event.event_id}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+							<big>${event.title}</big>
+							% if not event.enabled:
+								<span class="badge badge-secondary">скрыто</span>
+							% endif
+							<small>${event.date_f}</small>
+						</div>
+					% endfor
+				</div>
+			</div>
+		</div>
+	</div>
+</%block>

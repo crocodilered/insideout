@@ -1,0 +1,47 @@
+<%inherit file="_base.html"/>
+
+<%block name="main">
+	<div class="container container-narrow container-tall">
+		<div class="row row-title">
+			<div class="col">
+				<h1>
+					<small>Расписание</small><br>
+					% if prev_link:
+						<i class="fa fa-chevron-left" aria-hidden="true" style="margin-right:1rem; color:#fa8128; cursor:pointer;" onclick="window.location.href = './?dt=${prev_link}'"></i>
+					% else:
+						<i class="fa fa-chevron-left" aria-hidden="true" style="margin-right:1rem; color:#ccc;"></i>
+					% endif
+					${monday_f}—${sunday_f}
+					% if next_link:
+						<i class="fa fa-chevron-right" aria-hidden="true" style="margin-left:1rem; color:#fa8128; cursor:pointer;" onclick="window.location.href = './?dt=${next_link}'"></i>
+					% else:
+						<i class="fa fa-chevron-right" aria-hidden="true" style="margin-right:1rem; color:#ccc;"></i>
+					% endif
+				</h1>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+					% for i in weekdays:
+						<li class="nav-item"><a class="nav-link ${'active' if today_weekday == loop.index else ''}" id="pills-day${loop.index}-tab" data-toggle="pill" href="#pills-day${loop.index}" role="tab" aria-controls="pills-day${loop.index}" aria-expanded="true">${i}</a></li>
+					% endfor
+				</ul>
+				<div class="tab-content">
+					% for day in schedule:
+						<div class="tab-pane fade show ${'active' if loop.index==today_weekday else ''}" id="pills-day${loop.index}" role="tabpanel" aria-labelledby="pills-day${loop.index}-tab">
+							<table class="content table-schedule">
+								% for row in schedule[loop.index]:
+									<tr>
+										<td>${row[0]}</td>
+										<td>${row[1]}</td>
+									</tr>
+								% endfor
+							</table>
+						</div>
+					% endfor
+				</div>
+			</div>
+		</div>
+	</div>
+</%block>

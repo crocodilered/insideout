@@ -1,0 +1,42 @@
+<%inherit file="_base.html"/>
+
+<%block name="main">
+	<div class="container container-narrow container-tall">
+		<div class="row row-title">
+			<div class="col"><h1>Преподаватели</h1></div>
+		</div>
+		<!--
+		<div class="row row-teacher">
+			<div class="col-md-6 col-introduction">
+				<img src="/media/teachers/teacher1.png" alt="Валерия Манухина" class="img-fluid">
+				<h2>Валерия Манухина</h2>
+				<p>Клинический психолог, патопсихолог, психосоматолог, преподаватель психологии.</p>
+				<h3>Образование</h3>
+				<p>2006 — МГУ им. Ломоносова, Факультет Психологии, кафедра нейро- и патопсихологии, специалист.</p>
+			</div>
+			<div class="col-md-6 col-description">
+				<h3><span>Опыт работы</span></h3>
+				<p>2008 г. — работа с пациентамив отделении восстановительного лечения в центре хирургии им. Пирогова.</p>
+				<p>2010 г. — частная практика.</p>
+				<h3><span>О подходе</span></h3>
+				<p>Sometimes you want to stop processing a template or method in the middle and just use the text you’ve accumulated so far. This is accomplished by using return statement inside a Python block. It’s a good idea for the return statement to return an empty string, which prevents the Python default return value of None from being rendered by the template. This return value is for semantic purposes provided in templates via the STOP_RENDERING symbol.</p>
+				<p>This tag suspends the Mako lexer’s normal parsing of Mako template directives, and returns its entire body contents as plain text. It is used pretty much to write documentation about Mako.</p>
+			</div>
+		</div>
+		-->
+		% for teacher in teachers:
+			<div class="row row-teacher">
+				<div class="col-md-6 col-introduction">
+					% if teacher.photo:
+						<img src="${teacher.photo}" alt="${teacher.name}" class="img-fluid">
+					% endif
+					<h2>${teacher.name}</h2>
+					${teacher.col1}
+				</div>
+				<div class="col-md-6 col-description">
+					${teacher.col2}
+				</div>
+			</div>
+		% endfor
+	</div>
+</%block>

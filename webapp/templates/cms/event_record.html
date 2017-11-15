@@ -1,0 +1,51 @@
+<%inherit file="_base.html"/>
+
+<%block name="form">
+	<form class="container" method="post" action="/cms/events/record" enctype="multipart/form-data">
+		<div class="row row-title"><div class="col"><h1>События</h1></div></div>
+		<div class="row align-items-center">
+			<div class="col-md-4"><div class="form-group"><img src="${event.photo if event and event.photo else '/i/cms/events_placeholder.png'}" class="img-fluid"></div></div>
+			<div class="col-md-8">
+				<div class="form-group">
+					<label for="inputPhoto">Фотография <span class="badge badge-danger">только JPG-файлы 750&times;420</span></label>
+					<input type="file" class="form-control" id="inputPhoto" name="photo" accept="image/jpg">
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="form-group">
+					<label for="inputTitle">Заголовок</label>
+					<input type="text" class="form-control form-control-lg" id="inputTitle" name="title" value="${event.title if event else ''}" required>
+				</div>
+				<div class="form-group">
+					<label for="inputText">Текст</label>
+					<textarea class="form-control" id="inputText" name="text" rows="8" required>${event.text if event else ''}</textarea>
+				</div>
+				<div class="form-group">
+					<label for="inputDate">Дата</label>
+					<input type="text" class="form-control form-control-lg" id="inputDate" name="date" value="${event.date if event else ''}" required>
+				</div>
+				<div class="form-check">
+					<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input" id="inputEnabled" name="enabled" value="1" ${'checked="checked"' if event and event.enabled else ''} >
+						<span class="custom-control-indicator"></span>
+						<span class="custom-control-description">Использовать на сайте</span>
+					</label>
+				</div>
+			</div>
+		</div>
+		<div class="row row-buttons">
+			<input type="hidden" name="event_id" value="${event.event_id if event else ''}">
+			<div class="col"><button type="submit" class="btn btn-primary">Сохранить</button></div>
+		</div>
+	</form>
+</%block>
+
+<%block name="javascript">
+	<script>
+		$( function() {
+			$('#inputDate').datepicker({'dateFormat':'yy-mm-dd'});
+		});
+  </script>
+</%block>

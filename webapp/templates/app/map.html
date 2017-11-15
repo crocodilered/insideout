@@ -1,0 +1,61 @@
+<%inherit file="_base.html"/>
+
+<%block name="head">
+	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
+</%block>
+
+<%block name="main">
+
+	<div class="container container-narrow  container-tall">
+		<div class="row row-title">
+			<div class="col"><h1><small>Контакты</small><br>Как нас найти</h1></div>
+		</div>
+		<div class="row align-items-center">
+			<div class="col-sm-6">
+				<p>Наша студия <b>Inside</b>&amp;<i>Out</i> расположена в&nbsp;Красногорском районе, на&nbsp;Ильинском шоссе напротив пансионата «Петрово-Дальнее».</p>
+				<p>Звоните нам, чтобы уточнить любой интересующий вас вопрос, записаться на&nbsp;класс или консультацию. Будем рады помочь и ждем в йога-классе каждый день!</p>
+			</div>
+			<div class="col-sm-6">
+				<table class="content">
+					<tr>
+						<td><i class="fa fa-map-marker fa-2x" aria-hidden="true"></i></td>
+						<td>Ильинское шоссе, Петрово-Дальнее, пос. Мечниково, 27</td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-phone fa-2x" aria-hidden="true"></i></td>
+						<td><a href="tel:+79267632643">+7 (926) 763-26-43</a></td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-envelope fa-2x" aria-hidden="true"></i></td>
+						<td><a href="mailto:insideout.yoga@yandex.ru">insideout.yoga@yandex.ru</a></td>
+					</tr>
+					<tr>
+						<td><i class="fa fa-clock-o fa-2x" aria-hidden="true"></i></td>
+						<td>09:00—20:00, без выходных</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid" style="padding:0">
+		<div class="row no-gutters">
+			<div class="col" style="padding:0">
+				<div id="map" style="height:600px"></div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		ymaps.ready(function() {
+			new ymaps.Map("map", {
+				center: [55.748554, 37.159836],
+				zoom: 16
+			})
+				.geoObjects.add( new ymaps.Placemark([55.748554, 37.159836], {
+					balloonContent: '<big><b>Inside</b><i>&amp;Out</i></big><br>Ильинское шоссе, Петрово-Дальнее, пос. Мечниково, 27'
+				}));
+		});
+	</script>
+
+</%block>

@@ -1,0 +1,46 @@
+<%! import datetime %>
+
+<%inherit file="_base.html"/>
+
+<%block name="form">
+	<div class="container">
+		<div class="row row-title">
+			<div class="col">
+				<h1>Расписание</h1>
+				<ul class="nav justify-content-center" style="margin-bottom: 2rem">
+					<li class="nav-item"><a href="./record" class="btn btn-outline-primary btn-lg"><i class="fa fa-plus" aria-hidden="true"></i> Добавить ...</a> </li>
+				</ul>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col">
+				<div class="records">
+					% for item in schedule:
+						<div>
+							<%
+								wd = item.date.weekday()
+								if wd == 0: wds = "Понедельник"
+								if wd == 1: wds = "Вторник"
+								if wd == 2: wds = "Среда"
+								if wd == 3: wds = "Четверг"
+								if wd == 4: wds = "Пятница"
+								if wd == 5: wds = "Суббота"
+								if wd == 6: wds = "Воскресенье"
+							%>
+							
+							<a href="./record?schedule_id=${item.schedule_id}" class="btn btn-outline-primary btn-sm"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+							<big>${wds}</big>
+							% if not item.enabled:
+								<span class="badge badge-secondary">скрыто</span>
+							% endif
+							<small>${item.date}</small>
+							% if wd == 0:
+								<hr>
+							% endif
+						</div>
+					% endfor
+				</div>
+			</div>
+		</div>
+	</div>
+</%block>
