@@ -18,9 +18,10 @@ cherrypy.tools.db = SATool()
 cherrypy.tools.render = MakoTool()
 cherrypy.tools.auth = AuthTool()
 
-from webapp.app import InsideOutApp, InsideOutAppEvents
+from webapp.app import InsideOutApp, InsideOutAppEvents, InsideOutAppMassage
 app = InsideOutApp()
 app.events = InsideOutAppEvents()
+app.massage = InsideOutAppMassage()
 
 from webapp.cms import InsideOutCms, InsideOutCmsTeachers, InsideOutCmsEvents, InsideOutCmsSchedule
 app.cms = InsideOutCms()

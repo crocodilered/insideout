@@ -158,6 +158,8 @@ p { color:#555; font-size:120%; }
 #body-schedule table.content td { padding:10px 1rem 10px 1rem; vertical-align: middle; font-size:120%; color:#555; }
 #body-schedule table.content td:first-child { white-space: nowrap; text-align: right; width:35%; border-right:1px solid silver; }
 
+.table-schedule i {	display:block; font-size:smaller; }
+
 #body-map #pano { display:none; }
 #body-map table.content td { padding:10px 10px 10px 0px; }
 
@@ -184,9 +186,22 @@ p { color:#555; font-size:120%; }
 
 #body-eventsRecord #pano { display:none; }
 
-#body-massage #pano { display:none; }
+#body-massage_index #pano,
+#body-massage_classical #pano,
+#body-massage_general #pano,
+#body-massage_sports #pano,
+#body-massage_lymphatic #pano,
+#body-massage_modeling #pano,
+#body-massage_aroma #pano,
+#body-massage_creole #pano,
+#body-massage_honey #pano { display:none; }
 
-.table-schedule i {
-	display:block;
-	font-size:smaller;
+#body-massage_index .table td { padding: .75rem .75rem .75rem 0; vertical-align:middle; }
+#body-massage_index .table td:last-child { padding-right:0; }
+
+.btn-outline-native {
+    color: #17a2b8;
+    background-color: transparent;
+    background-image: none;
+    border-color: #17a2b8;
 }

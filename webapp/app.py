@@ -97,13 +97,6 @@ class InsideOutApp(object):
         }
 
     @cherrypy.expose
-    @cherrypy.tools.render(template='app/massage.html')
-    def massage(self):
-        return {
-            'pageId': 'massage'
-        }
-
-    @cherrypy.expose
     @cherrypy.tools.render(template='app/values.html')
     def values(self):
         return {
@@ -138,3 +131,50 @@ class InsideOutAppEvents(object):
             return {
                 'pageId': 'eventsIndex'
             }
+
+
+class InsideOutAppMassage(object):
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/index.html')
+    def index(self):
+        return {'pageId': 'massage_index'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/classical.html')
+    def classical(self):
+        return {'pageId': 'massage_classical'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/general.html')
+    def general(self):
+        return {'pageId': 'massage_general'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/sports.html')
+    def sports(self):
+        return {'pageId': 'massage_sports'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/lymphatic.html')
+    def lymphatic(self):
+        return {'pageId': 'massage_lymphatic'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/modeling.html')
+    def modeling(self):
+        return {'pageId': 'massage_modeling'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/aroma.html')
+    def aroma(self):
+        return {'pageId': 'massage_aroma'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/creole.html')
+    def creole(self):
+        return {'pageId': 'massage_creole'}
+
+    @cherrypy.expose
+    @cherrypy.tools.render(template='app/massage/honey.html')
+    def honey(self):
+        return {'pageId': 'massage_honey'}
