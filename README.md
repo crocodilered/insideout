@@ -1,2 +1,2 @@
 # InsideOut
-http://insideout.com.ru/ web site.
+Small web site about yoga for friends. 
